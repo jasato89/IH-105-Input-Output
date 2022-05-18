@@ -42,11 +42,13 @@ public class Main {
          */
 
 
-        FileWriter fileWriter = new FileWriter("./ejemplo.txt", true);
+        FileWriter fileWriter = new FileWriter("./ejemplo.json", true);
 
         fileWriter.write("Hola buenos días\n");
+        int i = 12;
 
         fileWriter.write("Qué tal?\n");
+        fileWriter.write(String.valueOf(i));
 
         fileWriter.close();
 
