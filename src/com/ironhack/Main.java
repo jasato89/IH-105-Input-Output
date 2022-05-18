@@ -1,10 +1,14 @@
 package com.ironhack;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         /*
         System.out.println("Hola mundo");
@@ -15,19 +19,6 @@ public class Main {
         int z = i + x;
         z = suma(i, x);
 
-         */
-
-        int[] numbers = {1, 2, 3, 4, 5 ,6};
-        int counter = 0;
-
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 == 0) {
-                counter++;
-            } else {
-                System.err.println("Número impar");
-            }
-        }
-        System.out.println("Total números pares: " + counter);
 
 
         Scanner keyboard = new Scanner(System.in);
@@ -48,10 +39,31 @@ public class Main {
         } else {
             System.err.println(name + " " + surname + " : Acceso no permitido");
         }
+         */
+
+
+        FileWriter fileWriter = new FileWriter("./ejemplo.txt", true);
+
+        fileWriter.write("Hola buenos días\n");
+
+        fileWriter.write("Qué tal?\n");
+
+        fileWriter.close();
+
+        File file = new File("lista-de-la-compra.txt");
+        Scanner reader = new Scanner(file);
+        String listaDeLaCompra = "";
+
+        while(reader.hasNextLine()) {
+
+            listaDeLaCompra += reader.nextLine();
+
+        }
+        System.out.println(listaDeLaCompra);
+
+
+
 
     }
 
-    private static int suma(int i, int x) {
-        return x + i;
-    }
 }
